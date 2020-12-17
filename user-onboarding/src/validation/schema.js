@@ -10,7 +10,6 @@ export default yup.object().shape({
       .string()
       .required()
       .min(8,"Enter a secure password"),
-    // we're done with checkboxes
     ToS: yup.boolean(),
   });
   

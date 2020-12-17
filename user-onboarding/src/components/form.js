@@ -28,15 +28,17 @@ const { values, submit, change,disabled,errors } = props;
                     placeholder="Enter Here"
                 />
                 </label>
+                    <div>{errors.name}</div>
                 <label>Email  
                 <input
                     type="email"
-                    name="password"
+                    name="email"
                     value={values.email}
                     onChange={onChange}
                     placeholder="Enter email"
                 />
                 </label>
+                    <div>{errors.password}</div>
                 <label>Password  
                 <input
                     type="password"
@@ -46,11 +48,11 @@ const { values, submit, change,disabled,errors } = props;
                     placeholder="Enter Password"
                 />
                 </label>
+                    <div>{errors.ToS}</div>
                 <label>Terms of Service
                 <input
                     type="checkbox"
                     name="ToS"
-                    checked="values.ToS"
                     onChange={onChange}
                     checked={values.ToS}    
                     />

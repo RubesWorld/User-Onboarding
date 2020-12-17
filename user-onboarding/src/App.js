@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import axios from 'axios'
 import * as yup from 'yup' 
@@ -20,7 +20,7 @@ const initialFormErrors = {
   email:"",
   password:"",
 }
-const initialEmployee = []
+const initialEmployee = [];
 const initialDisabled = true;
 //initial values end 
 
@@ -31,26 +31,27 @@ export default function App() {
   const [disabled, setDisabled] = useState(initialDisabled);
 
 
-  const getEmployee = () => {
-    axios
-    .get("https://reqres.in/api/users")
-    .then((res)=>{
-      setUsers(res.data)
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
-  }
+  // const getEmployee = () => {
+  //   axios
+  //   .get("https://reqres.in/api/users")
+  //   .then((res)=>{
+  //     setUsers(res.data)
+  //   })
+  //   .catch((err)=>{
+  //     console.log(err)
+  //   })
+  // }
 
   const postNewEmployee = (newEmployee) => {
     axios
-    .get("https://reqres.in/api/users",newEmployee)
+    .post("https://reqres.in/api/users",newEmployee)
     .then((res)=>{
-      setUsers([res.data,...users]);
+      setUsers([...users,res.data]);
       setFormValues(initialFormValues);
     })    
     .catch((err)=>{
       console.log(err);
+      debugger;
     });
   }
 
@@ -87,9 +88,9 @@ export default function App() {
    postNewEmployee(newEmployee);
   }
 
-  useEffect(()=>{
-    getEmployee();
-  },[]);
+  // useEffect(()=>{
+  //   getEmployee();
+  // },[]);
 
   useEffect(() =>{
     schema.isValid(formValues).then((valid) =>{
@@ -108,7 +109,9 @@ export default function App() {
         errors={formErrors}
        />
 
-       <Users info={users}/>
+      {users.map((user)=>{
+        return <Users key={users.id} info={user}/>
+      })}
 
     </div>
   );
