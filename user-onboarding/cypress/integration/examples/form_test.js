@@ -6,6 +6,7 @@ describe("User-Onboarding",()=>{
     const nameInput = () => cy.get('input[name="name"]'); 
     const emailInput = () => cy.get('input[name="email"]');
     const password = () => cy.get('input[name=password]');
+    const tos = () => cy.get('input[type=checkbox]');
 
      it('name check', ()=>{
         nameInput().type('Ruben')
@@ -19,5 +20,8 @@ describe("User-Onboarding",()=>{
         password().type('pimpsauce5')
         password().should('have.value','pimpsauce5');
      })
-
+     it('Terms of Service check',()=>{
+        tos().check()
+        tos().should('have.value','on')
+     })
 })
