@@ -57,7 +57,7 @@ const { values, submit, change,disabled,errors } = props;
                     checked={values.ToS}    
                     />
                 </label>
-                <button disabled={disabled}>Submit</button>
+                <button id="submitBtn" disabled={disabled}>Submit</button>
             
             </div>
         </form>

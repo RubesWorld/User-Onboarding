@@ -7,6 +7,7 @@ describe("User-Onboarding",()=>{
     const emailInput = () => cy.get('input[name="email"]');
     const password = () => cy.get('input[name=password]');
     const tos = () => cy.get('input[type=checkbox]');
+    const submitButton = () => cy.get('#submitBtn')
 
      it('name check', ()=>{
         nameInput().type('Ruben')
@@ -23,5 +24,12 @@ describe("User-Onboarding",()=>{
      it('Terms of Service check',()=>{
         tos().check()
         tos().should('have.value','on')
+     })
+     it('Submit Button',()=>{
+        nameInput().type('ruben')
+        emailInput().type('ra15@outlook.com')
+        password().type('asdfasdf')
+        tos().check()
+        submitButton().should('not.be.disabled')
      })
 })
