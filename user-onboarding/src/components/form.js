@@ -28,7 +28,7 @@ const { values, submit, change,disabled,errors } = props;
                     placeholder="Enter Here"
                 />
                 </label>
-                    <div>{errors.name}</div>
+                    <div id="errName">{errors.name}</div>
                 <label>Email  
                 <input
                     type="email"
@@ -38,7 +38,7 @@ const { values, submit, change,disabled,errors } = props;
                     placeholder="Enter email"
                 />
                 </label>
-                    <div>{errors.password}</div>
+                    <div id="errEmail">{errors.email}</div>
                 <label>Password  
                 <input
                     type="password"
@@ -47,8 +47,9 @@ const { values, submit, change,disabled,errors } = props;
                     onChange={onChange}
                     placeholder="Enter Password"
                 />
+                    <div id="errPw">{errors.password}</div>
                 </label>
-                    <div>{errors.ToS}</div>
+                    
                 <label>Terms of Service
                 <input
                     type="checkbox"
@@ -57,6 +58,7 @@ const { values, submit, change,disabled,errors } = props;
                     checked={values.ToS}    
                     />
                 </label>
+                     <div id="errTos">{errors.ToS}</div> 
                 <button id="submitBtn" disabled={disabled}>Submit</button>
             
             </div>

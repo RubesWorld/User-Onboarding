@@ -8,6 +8,10 @@ describe("User-Onboarding",()=>{
     const password = () => cy.get('input[name=password]');
     const tos = () => cy.get('input[type=checkbox]');
     const submitButton = () => cy.get('#submitBtn')
+    const errName = () =>cy.get('#errName');
+    const errEmail = () => cy.get('#errEmail');
+    const errPw = () =>cy.get('#errPw');
+    const errTos = () =>cy.get('#errTos');
 
      it('name check', ()=>{
         nameInput().type('Ruben')
@@ -31,5 +35,11 @@ describe("User-Onboarding",()=>{
         password().type('asdfasdf')
         tos().check()
         submitButton().should('not.be.disabled')
+     })
+     it('form validation',()=>{
+        errName().should('exist')
+        errPw().should('exist')
+
+
      })
 })
